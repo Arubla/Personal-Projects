@@ -50,6 +50,13 @@ public class UserInterface {
         String valuePrompt = "Please enter the length you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 24 km\n" +
                 "NOTE: this program accepts cm, ft, m, and km.";
+        String objectPrompt = "Would you like the length in :\n" +
+                "(1) New Pencils\n" +
+                "(2) Boa Constrictors\n" +
+                "(3) School Buses\n" +
+                "(4) Brooklyn Bridges\n" +
+                "(5) Wyomings\n" +
+                "Enter the number that corresponds to your selection.";
         String invalidInput = "Invalid input. Please try again";
         while (true) {
             System.out.println(valuePrompt);
@@ -63,6 +70,10 @@ public class UserInterface {
                 System.out.println(invalidInput);
             } else {
                 //display objectPrompt, capture value, run converter
+                System.out.println(objectPrompt);
+                Integer conversionSelection = Integer.parseInt(keyboardInput.nextLine());
+                String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterLengthMap(), conversionSelection);
+                System.out.println(conversionString);
             }
         }
     }
@@ -103,6 +114,13 @@ public class UserInterface {
         String valuePrompt = "Please enter the weight you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 10 kg\n" +
                 "NOTE: this program accepts mg, g, kg, and t.";
+        String objectPrompt = "Would you like the height in :\n" +
+                "(1) Turkey Feathers\n" +
+                "(2) Tennis Balls\n" +
+                "(3) Gallons of Water\n" +
+                "(4) Muhammad Alis\n" +
+                "(5) Elephants\n" +
+                "Enter the number that corresponds to your selection.";
         String invalidInput = "Invalid input. Please try again";
 
         System.out.println(valuePrompt);
@@ -115,6 +133,10 @@ public class UserInterface {
             System.out.println(invalidInput);
         } else {
             //display objectPrompt, capture value, run converter
+            System.out.println(objectPrompt);
+            Integer conversionSelection = Integer.parseInt(keyboardInput.nextLine());
+            String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterWeightMap(), conversionSelection);
+            System.out.println(conversionString);
         }
     }
 

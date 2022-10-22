@@ -51,7 +51,8 @@ public class Converter {
         BigDecimal standardizedUserValue = standardizeUserValue(userValue, valueUnits);
         CrazyConverterUnit crazyConverterUnit = crazyConverterMap.get(mapKey);
 
-        BigDecimal convertedValue = standardizedUserValue.divide(crazyConverterUnit.getUnitValue(),2, RoundingMode.HALF_UP); //TODO need to round this.
+        BigDecimal convertedValue = standardizedUserValue.divide(crazyConverterUnit.getUnitValue(),2, RoundingMode.HALF_UP);
+
         String conversion = userValue + valueUnits + " is " + convertedValue.toString() + " " + crazyConverterUnit.toString() + ".";
         return conversion;
     }
@@ -70,7 +71,7 @@ public class Converter {
                 case "m":
                     return userValue;
                 case "km":
-                    return userValue.divide(BigDecimal.valueOf(100000));
+                    return userValue.multiply(BigDecimal.valueOf(1000));
                 default:
                     return null;
             }
