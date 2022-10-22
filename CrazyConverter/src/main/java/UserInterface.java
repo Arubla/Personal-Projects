@@ -58,7 +58,7 @@ public class UserInterface {
                 "(5) Wyomings\n" +
                 "Enter the number that corresponds to your selection.";
         String invalidInput = "Invalid input. Please try again";
-        while (true) {
+
             System.out.println(valuePrompt);
             String[] input = keyboardInput.nextLine().split(" ");
             BigDecimal value = new BigDecimal(input[0]);
@@ -69,15 +69,18 @@ public class UserInterface {
             if (standardizedValue == null || standardizedValue.compareTo(BigDecimal.valueOf(0.0)) <= 0) {
                 System.out.println(invalidInput);
             } else {
-                //display objectPrompt, capture value, run converter
                 System.out.println(objectPrompt);
-                Integer conversionSelection = Integer.parseInt(keyboardInput.nextLine());
-                String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterLengthMap(), conversionSelection);
-                System.out.println(conversionString);
+                String conversionSelection = keyboardInput.nextLine();
+                if (conversionSelection != null && (conversionSelection.equals("1") || conversionSelection.equals("2") || conversionSelection.equals("3") || conversionSelection.equals("4") || conversionSelection.equals("5"))) {
+                    //display objectPrompt, capture value, run converter
+                    String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterLengthMap(), conversionSelection);
+                    System.out.println(conversionString);
+                } else {
+                    System.out.println(invalidInput);
+                }
             }
         }
-    }
-//TODO first draft complete here for reference, still have weight and length to do.
+
     public void convertHeight(Scanner keyboardInput) {
         String valuePrompt = "Please enter the height you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 3 m\n" +
@@ -103,13 +106,18 @@ public class UserInterface {
             //display objectPrompt, capture String, run converter with string and
             //standardized value
             System.out.println(objectPrompt);
-            Integer conversionSelection = Integer.parseInt(keyboardInput.nextLine());
-            String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterHeightMap(), conversionSelection);
-            System.out.println(conversionString);
+            String conversionSelection = keyboardInput.nextLine();
+            if (conversionSelection != null && (conversionSelection.equals("1") || conversionSelection.equals("2") || conversionSelection.equals("3") || conversionSelection.equals("4") || conversionSelection.equals("5"))) {
+                //display objectPrompt, capture value, run converter
+                String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterHeightMap(), conversionSelection);
+                System.out.println(conversionString);
+                System.out.println(invalidInput);
+            } else {
+                System.out.println(invalidInput);
+            }
+
         }
-
     }
-
     public void convertWeight(Scanner keyboardInput) {
         String valuePrompt = "Please enter the weight you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 10 kg\n" +
@@ -134,9 +142,15 @@ public class UserInterface {
         } else {
             //display objectPrompt, capture value, run converter
             System.out.println(objectPrompt);
-            Integer conversionSelection = Integer.parseInt(keyboardInput.nextLine());
-            String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterWeightMap(), conversionSelection);
-            System.out.println(conversionString);
+            String conversionSelection = keyboardInput.nextLine();
+            if (conversionSelection != null && (conversionSelection.equals("1") || conversionSelection.equals("2") || conversionSelection.equals("3") || conversionSelection.equals("4") || conversionSelection.equals("5"))) {
+                //display objectPrompt, capture value, run converter
+                String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterWeightMap(), conversionSelection);
+                System.out.println(conversionString);
+                System.out.println(invalidInput);
+            } else {
+                System.out.println(invalidInput);
+            }
         }
     }
 

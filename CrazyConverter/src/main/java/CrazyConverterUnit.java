@@ -2,13 +2,13 @@ import java.math.BigDecimal;
 
 public class CrazyConverterUnit {
     //fields
-    private int id;
+    private String id;
     private String unitString;
     private BigDecimal unitValue;
 
     //constructor
 
-    public CrazyConverterUnit(int id, String unitString, BigDecimal unitValue) {
+    public CrazyConverterUnit(String id, String unitString, BigDecimal unitValue) {
         this.id = id;
         this.unitString = unitString;
         this.unitValue = unitValue;
@@ -16,11 +16,11 @@ public class CrazyConverterUnit {
 
     //getters  //setters
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
