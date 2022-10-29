@@ -111,7 +111,6 @@ public class UserInterface {
                 //display objectPrompt, capture value, run converter
                 String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterHeightMap(), conversionSelection);
                 System.out.println(conversionString);
-                System.out.println(invalidInput);
             } else {
                 System.out.println(invalidInput);
             }
@@ -147,7 +146,6 @@ public class UserInterface {
                 //display objectPrompt, capture value, run converter
                 String conversionString = myConverter.runConversion(value, units, myConverter.getCrazyConverterWeightMap(), conversionSelection);
                 System.out.println(conversionString);
-                System.out.println(invalidInput);
             } else {
                 System.out.println(invalidInput);
             }
