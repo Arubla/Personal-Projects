@@ -10,6 +10,7 @@ public class UserInterface {
     //this class has a scanner for taking in keyboard input
     private Scanner keyboardInput = new Scanner(System.in);
     Converter myConverter = new Converter();
+    private String invalidInput = "Invalid input. Please try again";
     //and a writer for keeping a log (this will go in its own method
     /*File logFile = new File("log.txt");
     private FileWriter fileWriter = new FileWriter(logFile, true);
@@ -19,7 +20,6 @@ public class UserInterface {
         String welcomeMessage = "Welcome to the Crazy Calculator!";
         String selectDimensionPrompt = "Would you like to convert weight, height, or length?\n" +
                 "Please type in one of those three and press enter. To exit the program, type 'exit'.";
-        String invalidInput = "Invalid input. Please try again";
         while (true) {
             //Ask the user whether they want to check weight, height, or distance/length
             System.out.println(welcomeMessage);
@@ -29,14 +29,27 @@ public class UserInterface {
             //run the appropriate sub-menu method using a switch case
             switch (dimensionSelection) {
                 case "weight":
+                    try {
                     convertWeight(keyboardInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println(invalidInput);
+                    }
                     break;
                 case "height":
-                    convertHeight(keyboardInput);
+                    try {
+                        convertHeight(keyboardInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println(invalidInput);
+                    }
                     break;
                 case "length":
-                    convertLength(keyboardInput);
+                    try {
+                        convertLength(keyboardInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println(invalidInput);
+                    }
                     break;
+
                 case "exit":
                     System.exit(0);
                 default:
@@ -46,7 +59,7 @@ public class UserInterface {
     }
 // each convert method prompts user for a value, the unit of measurement,
 // and which crazy conversion to run. The method then calls a helper method for the calculation.
-    public void convertLength(Scanner keyboardInput) {
+    public void convertLength(Scanner keyboardInput) throws NumberFormatException{
         String valuePrompt = "Please enter the length you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 24 km\n" +
                 "NOTE: this program accepts cm, ft, m, and km.";
@@ -57,7 +70,6 @@ public class UserInterface {
                 "(4) Brooklyn Bridges\n" +
                 "(5) Wyomings\n" +
                 "Enter the number that corresponds to your selection.";
-        String invalidInput = "Invalid input. Please try again";
 
             System.out.println(valuePrompt);
             String[] input = keyboardInput.nextLine().split(" ");
@@ -85,7 +97,6 @@ public class UserInterface {
         String valuePrompt = "Please enter the height you want to convert followed" +
                 " by the unit of measurement,\nseparated by a space. For example: 3 m\n" +
                 "NOTE: this program accepts cm, ft, or m.";
-        String invalidInput = "Invalid input. Please try again";
         String objectPrompt = "Would you like the height in :\n" +
                 "(1) Fire Hydrants\n" +
                 "(2) Kangaroos\n" +
@@ -128,7 +139,6 @@ public class UserInterface {
                 "(4) Muhammad Alis\n" +
                 "(5) Elephants\n" +
                 "Enter the number that corresponds to your selection.";
-        String invalidInput = "Invalid input. Please try again";
 
         System.out.println(valuePrompt);
         String[] input = keyboardInput.nextLine().split(" ");
