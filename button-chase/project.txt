@@ -1,8 +1,0 @@
-The goal of this (hopefully short) project is to play with javascript functions to make a button evade the click of a mouse.
-
-The app will put a button in the browser window, and listen for cursor movement. When the cursor draws close to the button,
-the button moves a random distance away in a random direction. The text of the button changes with each move to mock the user.
-
-If I can, I want to animate the button's movement, so it's not just teleporting around the page.
-
-When it is caught, a "you win" message will appear.
